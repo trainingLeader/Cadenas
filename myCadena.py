@@ -11,4 +11,5 @@ print(f"{valor.isalnum()}")
 print(f"{mensaje.isalpha()}")
 print(f"{valor.zfill(4)}")
 print(f"{valor.zfill(4)}")
+print(f"{valor.zfill(4)}")
 
