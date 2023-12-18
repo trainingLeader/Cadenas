@@ -26,87 +26,81 @@ while (isActive) :
                 os.system("pause")
                 rta = input("Desea registrar otro Alumno S(si) o N(No)").upper()
         elif (opMenu == 2):
-            opNotas = 0
-            isActiveGrades = True
-            while (isActiveGrades):
-                os.system("cls")
-                for i,item in enumerate(subMenuNotas):
-                    print(f"{i+1}. {item}")
+            if (len(alumnos)>0):
+                opNotas = 0
+                isActiveGrades = True
+                while (isActiveGrades):
+                    os.system("cls")
+                    for i,item in enumerate(subMenuNotas):
+                        print(f"{i+1}. {item}")
 
-                try:
-                    opNotas = int(input(":)"))
-                except ValueError:
-                    print("Error en el dato de de ingreso")
-                    os.system("pause")
-                else:                    
-                    if (opNotas == 1):
-                        rta = "S"
-                        isAddGrades = True
-                        codigo = input("Ingrese el codigo del Estudiante: ")
-                        for item in alumnos:
-                            if codigo in item:
-                                indice=alumnos.index(item)
-                        while isAddGrades:
-                            while (rta in ["S","s"]):
-                                nota=float(input("Ingrese la nota del parcial: "))
-                                alumnos[indice][3].append(nota)
-                                print(alumnos)
-                                os.system("pause")
-                                rta = input("Desea registrar otro parcial S(si) o N(No)").upper()
-                            if bool(input("Desea registrar otro estudiante S(si) o Enter(No)")):
+                    try:
+                        opNotas = int(input(":)"))
+                    except ValueError:
+                        print("Error en el dato de de ingreso")
+                        os.system("pause")
+                    else:                    
+                        if (opNotas == 1):
+                            rta = "S"
+                            isAddGrades = True
+                            while isAddGrades:
                                 codigo = input("Ingrese el codigo del Estudiante: ")
-                                rta = "S"
                                 for item in alumnos:
                                     if codigo in item:
                                         indice=alumnos.index(item)
-                                isAddGrades = bool(input("Desea iniciar con el registro S(si) o Enter(No)"))                           
-                    elif (opNotas == 2):
-                        rta = "S"
-                        isAddGrades = True
-                        codigo = input("Ingrese el codigo del Estudiante: ")
-                        for item in alumnos:
-                            if codigo in item:
-                                indice=alumnos.index(item)
-                        while isAddGrades:
-                            while (rta in ["S","s"]):
-                                nota=float(input("Ingrese la nota del quiz: "))
-                                alumnos[indice][4].append(nota)
-                                print(alumnos)
-                                os.system("pause")
-                                rta = input("Desea registrar otro quiz S(si) o N(No)").upper()
-                            if bool(input("Desea registrar otro estudiante S(si) o Enter(No)")):
+                                while (rta in ["S","s"]):
+                                    nota=float(input("Ingrese la nota del parcial: "))
+                                    alumnos[indice][3].append(nota)
+                                    print(alumnos)
+                                    os.system("pause")
+                                    rta = input("Desea registrar otro parcial S(si) o N(No)").upper()
+                                if bool(input("Desea registrar otro estudiante S(si) o Enter(No)")):
+                                    rta = "S"
+                                    isAddGrades = True
+                                else:
+                                    isAddGrades = False                           
+                        elif (opNotas == 2):
+                            rta = "S"
+                            isAddGrades = True
+                            while isAddGrades:
                                 codigo = input("Ingrese el codigo del Estudiante: ")
-                                rta = "S"
                                 for item in alumnos:
                                     if codigo in item:
                                         indice=alumnos.index(item)
-                                isAddGrades = bool(input("Desea iniciar con el registro S(si) o Enter(No)")) 
-                    elif (opNotas == 3):
-                        rta = "S"
-                        isAddGrades = True
-                        codigo = input("Ingrese el codigo del Estudiante: ")
-                        for item in alumnos:
-                            if codigo in item:
-                                indice=alumnos.index(item)
-                        while isAddGrades:
-                            while (rta in ["S","s"]):
-                                nota=float(input("Ingrese la nota del trabajo: "))
-                                alumnos[indice][4].append(nota)
-                                print(alumnos)
-                                os.system("pause")
-                                rta = input("Desea registrar otro trabajo S(si) o N(No)").upper()
-                            if bool(input("Desea registrar otro estudiante S(si) o Enter(No)")):
+                                while (rta in ["S","s"]):
+                                    nota=float(input("Ingrese la nota del Quiz: "))
+                                    alumnos[indice][4].append(nota)
+                                    print(alumnos)
+                                    os.system("pause")
+                                    rta = input("Desea registrar otro Quiz S(si) o N(No)").upper()
+                                if bool(input("Desea registrar otro estudiante S(si) o Enter(No)")):
+                                    rta = "S"
+                                    isAddGrades = True
+                                else:
+                                    isAddGrades = False                           
+                        elif (opNotas == 3):
+                            rta = "S"
+                            isAddGrades = True
+                            while isAddGrades:
                                 codigo = input("Ingrese el codigo del Estudiante: ")
-                                rta = "S"
                                 for item in alumnos:
                                     if codigo in item:
                                         indice=alumnos.index(item)
-                                isAddGrades = bool(input("Desea iniciar con el registro S(si) o Enter(No)")) 
-
-                    elif (opNotas == 4):
-                        isActiveGrades = False
-                    else:
-                        pass
+                                while (rta in ["S","s"]):
+                                    nota=float(input("Ingrese la nota del Trabajo: "))
+                                    alumnos[indice][5].append(nota)
+                                    print(alumnos)
+                                    os.system("pause")
+                                    rta = input("Desea registrar otro Trabajo S(si) o N(No)").upper()
+                                if bool(input("Desea registrar otro estudiante S(si) o Enter(No)")):
+                                    rta = "S"
+                                    isAddGrades = True
+                                else:
+                                    isAddGrades = False                           
+                        elif (opNotas == 4):
+                            isActiveGrades = False
+                        else:
+                            pass
         elif (opMenu == 3):
             codigo = input("Ingrese el codigo del Estudiante: ")
 
